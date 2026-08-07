@@ -16,7 +16,7 @@ The best of the 16, the Bagging Classifier, reaches a weighted F1 of 0.9693 (boo
 
 **Full technical report — English: [Markdown](report_en.md) · [PDF](report_en.pdf) — Italian: [Markdown](report_it.md) · [PDF](report_it.pdf)**
 
-**The notebook is large and does not preview on GitHub — open it on
+**If the notebook does not preview on GitHub, open it on
 [nbviewer](https://nbviewer.org/github/SamueleNonnis/forest-covertype-classification/blob/main/forest_cover_type_classification.ipynb)
 or in [Colab](https://colab.research.google.com/github/SamueleNonnis/forest-covertype-classification/blob/main/forest_cover_type_classification.ipynb).**
 
