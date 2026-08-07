@@ -14,8 +14,7 @@ The best of the 16, the Bagging Classifier, reaches a weighted F1 of 0.9693 (boo
 
 > University of Cagliari — coursework project, reworked.
 
-**Full technical report — English: [PDF](report_en.pdf) · [Markdown](report_en.md) — Italian
-edition: [PDF](report_it.pdf) · [Markdown](report_it.md)**
+**Full technical report — English: [PDF](report_en.pdf) · [Markdown](report_en.md) — Italian: [PDF](report_it.pdf) · [Markdown](report_it.md)**
 
 ## Per-class results
 
