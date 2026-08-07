@@ -1,0 +1,24 @@
+#Forest Cover Type Classification — Python 3.11.15
+
+#These are the exact versions that produced run_log_full.txt and the figures in
+#this repository. scipy and xgboost sit one release behind the current latest because
+#the newer ones require Python >=3.12.
+
+#Note that identical versions do not guarantee identical digits. Results shift in
+#the third to fourth decimal across CPUs and thread counts (see the Limitations
+#section of the report).
+
+numpy==2.4.2
+pandas==3.0.0
+scipy==1.17.1
+scikit-learn==1.9.0
+imbalanced-learn==0.14.2
+matplotlib==3.11.0
+seaborn==0.13.2
+xgboost==3.2.0
+lightgbm==4.6.0
+
+#notebook tooling, UI/execution
+notebook==7.6.1
+ipykernel==7.3.0
+nbconvert==7.17.1
