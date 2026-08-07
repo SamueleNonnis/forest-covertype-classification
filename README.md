@@ -14,7 +14,11 @@ The best of the 16, the Bagging Classifier, reaches a weighted F1 of 0.9693 (boo
 
 > University of Cagliari — coursework project, reworked.
 
-**Full technical report — English: [PDF](report_en.pdf) · [Markdown](report_en.md) — Italian: [PDF](report_it.pdf) · [Markdown](report_it.md)**
+**Full technical report — English: [Markdown](report_en.md) · [PDF](report_en.pdf) — Italian: [Markdown](report_it.md) · [PDF](report_it.pdf)**
+
+**The notebook is large and does not preview on GitHub — open it on
+[nbviewer](https://nbviewer.org/github/SamueleNonnis/forest-covertype-classification/blob/main/forest_cover_type_classification.ipynb)
+or in [Colab](https://colab.research.google.com/github/SamueleNonnis/forest-covertype-classification/blob/main/forest_cover_type_classification.ipynb).**
 
 ## Per-class results
 
@@ -58,7 +62,8 @@ does not. The gap between the two is where failure on the rare classes appears.
   because of its O(n²) cost.
 - Nothing is selected or tuned on the test set and the winner is identified after all 16
   models have been scored.
-- The full run writes every number it prints to `run_log_full.txt`, which is included in this repository.
+- The full run takes 4h 19m and writes every number it prints to `run_log_full.txt`, which is
+  included in this repository.
 
 ## Results
 
