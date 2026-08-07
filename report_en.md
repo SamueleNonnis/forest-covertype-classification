@@ -29,7 +29,7 @@ The dataset contains 581,012 observations and 7 classes representing the differe
 | 6 | Douglas Fir | 17,367 | 2.99% |
 | 7 | Krummholz | 20,510 | 3.53% |
 
-<img src="figures/classDistr.png" width="493" alt="Class distribution">
+<img src="figures/classDistr.png" width="666" alt="Class distribution">
 
 The classification is based on 54 cartographic features:
 
@@ -61,47 +61,47 @@ The dataset now includes 13 numerical features, analysed through boxplots and or
 **Elevation — elevation above sea level, in metres**
 Elevation determines the temperature, humidity and climate conditions that define the ideal habitat for each species. It is useful for separating species adapted to harsh high-altitude climates from those found in the valleys. It is the most discriminative feature, with well-separated per-class distributions. Class (7) occupies the highest elevations (>3,300 m), with a compact distribution and many outliers towards higher elevations. Class (1) sits between 2,800–3,200 m, class (2) between 2,500–3,000 m. Classes 3, 4, 5, and 6 occupy the lower zones (<2,700 m) in a stratified manner, displaying few to no outliers.
 
-<img src="figures/boxplots/boxplot_Elevation.png" width="213" alt="Boxplot of Elevation by class">
+<img src="figures/boxplots/boxplot_Elevation.png" width="287" alt="Boxplot of Elevation by class">
 
 **Elev_minus_VDH and Elev_plus_VDH — engineered features**
 The two features are linear combinations of Elevation and Vertical Distance to Hydrology, meant to capture the interactions between elevation and position relative to water features. Their distributions are driven by Elevation, with the same ordering and class separations, but creating these two features can help the tree-based models. In the model evaluation via Permutation Importance, `Elev_minus_VDH` turned out to be the most influential feature for the winning model.
 
-<img src="figures/boxplots/boxplot_Elev_minus_VDH.png" width="219" alt="Boxplot of Elev_minus_VDH by class">
-<img src="figures/boxplots/boxplot_Elev_plus_VDH.png" width="226" alt="Boxplot of Elev_plus_VDH by class">
+<img src="figures/boxplots/boxplot_Elev_minus_VDH.png" width="296" alt="Boxplot of Elev_minus_VDH by class">
+<img src="figures/boxplots/boxplot_Elev_plus_VDH.png" width="306" alt="Boxplot of Elev_plus_VDH by class">
 
 **Horizontal Distance to Roadways — distance to roadways**
 This feature indicates the remoteness or accessibility of an area. For instance, mountain species are typically found farther from road networks. Classes 3, 4, 5, and 6 exhibit compact distributions with medians around 1,000 m. Conversely, classes 1, 2, and 7 display wider distributions, reaching distances up to 2,400 m, 2,000 m, and 2,700 m respectively. Consequently, this feature is highly discriminative, particularly for isolating classes 1, 2, and 7, with several classes showing outliers at greater distances.
 
-<img src="figures/boxplots/boxplot_Horizontal_Distance_To_Roadways.png" width="213" alt="Boxplot of Horizontal_Distance_To_Roadways by class">
+<img src="figures/boxplots/boxplot_Horizontal_Distance_To_Roadways.png" width="287" alt="Boxplot of Horizontal_Distance_To_Roadways by class">
 
 **Horizontal Distance to Fire Points — distance to fire ignition points**
 It measures the historical distance from areas hit by fires. Some species are more fire-resistant than others. None of the distributions exceed 3,000 m, outliers aside. Classes (1) and (2) show wide, almost identical distributions. Classes 3, 4, 5, 6 tend towards shorter distances and have compact distributions. Class (7) has no outliers. High-altitude species are therefore usually farther from fire-prone areas, while others grow near more fire-vulnerable areas.
 
-<img src="figures/boxplots/boxplot_Horizontal_Distance_To_Fire_Points.png" width="213" alt="Boxplot of Horizontal_Distance_To_Fire_Points by class">
+<img src="figures/boxplots/boxplot_Horizontal_Distance_To_Fire_Points.png" width="287" alt="Boxplot of Horizontal_Distance_To_Fire_Points by class">
 
 **Horizontal / Vertical Distance to Hydrology and Distance to Hydrology — distances to water features**
 Horizontal, vertical and Euclidean distance to water features, used to identify species that need to live close to water. Class (4) is the most distinct in all three plots, with median distances around 0 m, very low compared to the other classes. The vertical distance shows low values not exceeding 50 m, with compact, overlapping distributions and many outliers across all classes. For the Euclidean and horizontal distances the distributions are more varied.
 
-<img src="figures/boxplots/boxplot_Horizontal_Distance_To_Hydrology.png" width="220" alt="Boxplot of Horizontal_Distance_To_Hydrology by class">
-<img src="figures/boxplots/boxplot_Vertical_Distance_To_Hydrology.png" width="223" alt="Boxplot of Vertical_Distance_To_Hydrology by class">
-<img src="figures/boxplots/boxplot_Distance_To_Hydrology.png" width="216" alt="Boxplot of Distance_To_Hydrology by class">
+<img src="figures/boxplots/boxplot_Horizontal_Distance_To_Hydrology.png" width="265" alt="Boxplot of Horizontal_Distance_To_Hydrology by class">
+<img src="figures/boxplots/boxplot_Vertical_Distance_To_Hydrology.png" width="269" alt="Boxplot of Vertical_Distance_To_Hydrology by class">
+<img src="figures/boxplots/boxplot_Distance_To_Hydrology.png" width="261" alt="Boxplot of Distance_To_Hydrology by class">
 
 **Slope — terrain slope, in degrees**
 High slopes characterise terrain typical of high elevations, while low slopes indicate flat areas or hills. Classes 3, 4 and 6 tend to sit on steeper slopes, consistent with mountainous terrain. Classes 1, 2 and 7 show gentler slopes. The distributions partly overlap, with several outliers towards high values in almost all classes.
 
-<img src="figures/boxplots/boxplot_Slope.png" width="213" alt="Boxplot of Slope by class">
+<img src="figures/boxplots/boxplot_Slope.png" width="287" alt="Boxplot of Slope by class">
 
 **Hillshade 9am / Noon / 3pm**
 The three features simulate solar exposure at three times of day (0–255) and act as indicators of exposure to the sun, which may affect the growth of species with different light tolerances. The distributions overlap heavily. For 9am they range over 170–250, with many outliers towards low values, and only class (6) seems to stand apart. For noon the values are very high, with compact, almost identical distributions and outliers towards low values. For 3pm the range is 70–180, with outliers in both directions. Overall, these features have weaker discriminative power than the other topographic variables.
 
-<img src="figures/boxplots/boxplot_Hillshade_9am.png" width="231" alt="Boxplot of Hillshade_9am by class">
-<img src="figures/boxplots/boxplot_Hillshade_Noon.png" width="231" alt="Boxplot of Hillshade_Noon by class">
-<img src="figures/boxplots/boxplot_Hillshade_3pm.png" width="231" alt="Boxplot of Hillshade_3pm by class">
+<img src="figures/boxplots/boxplot_Hillshade_9am.png" width="265" alt="Boxplot of Hillshade_9am by class">
+<img src="figures/boxplots/boxplot_Hillshade_Noon.png" width="265" alt="Boxplot of Hillshade_Noon by class">
+<img src="figures/boxplots/boxplot_Hillshade_3pm.png" width="265" alt="Boxplot of Hillshade_3pm by class">
 
 **Aspect — slope orientation in degrees, 0–360°**
 It indicates sun exposure and distinguishes whether a species prefers shadier or sunnier areas. The distributions overlap across most classes, so the feature has limited discriminative power. The medians fall between 110°–160°, except for class (6), which shows a higher value (~175°) with a wider distribution; this species is therefore presumed to occur on north-west or north-facing slopes. Only class 4 shows outliers towards high values. The feature is not an important predictor but can be useful for class (6).
 
-<img src="figures/boxplots/boxplot_Aspect.png" width="213" alt="Boxplot of Aspect by class">
+<img src="figures/boxplots/boxplot_Aspect.png" width="287" alt="Boxplot of Aspect by class">
 
 **Summary.** Elevation is the most discriminative feature, together with the engineered features correlated to it. Next, `Horizontal_Distance_To_Roadways` and `Horizontal_Distance_To_Fire_Points` contribute, and the hydrology distances are useful for isolating class (4). Hillshade and Aspect are the least informative on their own but can be useful in combination with other features.
 
@@ -110,15 +110,15 @@ It indicates sun exposure and distinguishes whether a species prefers shadier or
 **Wilderness_Area — protected natural area**
 It indicates which of four protected areas the tree species belongs to. This feature is a good predictor, especially when used together with elevation. In the class-composition plot, areas 0, 1 and 2 are dominated by classes (1) and (2). Area 3 sits at lower elevations, as the elevation-distribution boxplot shows. Area 3 is also the main habitat of classes (3), (6) and hosts almost all of class (4), which is nearly absent from the other areas.
 
-<img src="figures/distr_wilderness.png" width="369" alt="Class composition by wilderness area">
+<img src="figures/distr_wilderness.png" width="499" alt="Class composition by wilderness area">
 
-<img src="figures/elevation_per_wilderness.png" width="471" alt="Elevation distribution by wilderness area">
+<img src="figures/elevation_per_wilderness.png" width="637" alt="Elevation distribution by wilderness area">
 
 **Soil_Type — soil type**
 The log-scale distribution plot shows strong imbalance: Soil Type 28 is the most frequent in the observations, while others are almost absent (such as ID 14). The feature is highly discriminative once the associations between certain species and certain soil types are observed. The heatmap shows that class (7) has a very strong association with soils 38 and 39; class (6) is strongly associated with soil ID 9. Classes (1) and (2) are spread over a wider range of soils (21–32).
 
-<img src="figures/soiltype_per_covertype.png" width="306" alt="Soil type composition by cover type">
-<img src="figures/distr_soiltype.png" width="403" alt="Soil type distribution">
+<img src="figures/soiltype_per_covertype.png" width="349" alt="Soil type composition by cover type">
+<img src="figures/distr_soiltype.png" width="458" alt="Soil type distribution">
 
 ### 2.4 Correlation Matrix
 
@@ -129,13 +129,13 @@ Most relevant correlations:
 - **Horiz. Distance to Hydrology ↔ Distance_To_Hydrology (r ≈ 1.00):** the engineered feature is strongly correlated with the horizontal component, since the vertical component is very small.
 - **Aspect ↔ Hillshade_3pm (r = 0.65):** positively correlated, since slope orientation directly conditions the hillshade.
 
-<img src="figures/heatMap.png" width="446" alt="Correlation matrix">
+<img src="figures/heatMap.png" width="603" alt="Correlation matrix">
 
 ### 2.5 Clustering and PCA Analysis
 
 A clustering analysis was carried out for exploratory purposes. Because of the size of the dataset, the classic K-Means algorithm would have been computationally expensive. MiniBatchKMeans was therefore used, which reduces computation times by updating the centroids on batches of observations at each iteration.
 
-<img src="figures/elbow_kmeans.png" width="426" alt="Elbow method for K-Means">
+<img src="figures/elbow_kmeans.png" width="576" alt="Elbow method for K-Means">
 
 To determine the number of clusters K, the elbow method was used, tracking the within-cluster variation as K varied between 2 and 11. Since the analysis is purely exploratory, K=7 was fixed, also because it is the number of forest species to predict. The resulting clusters were evaluated with two metrics:
 
@@ -146,7 +146,7 @@ To compare the real class distribution with the groupings created by the K-Means
 
 Nevertheless, the true classes spread along the PC1 axis with significant overlap, which accounts for the low ARI score. While Elevation provides the strongest signal, it is insufficient on its own. Therefore, accurately separating the classes requires non-linear models.
 
-<img src="figures/KMeans_vs_PCA.png" width="725" alt="Real classes vs K-Means clusters in PCA space">
+<img src="figures/KMeans_vs_PCA.png" width="820" alt="Real classes vs K-Means clusters in PCA space">
 
 ## 3 — Preprocessing
 
@@ -292,7 +292,7 @@ All 16 models were trained, tuned and evaluated on the same test set of 116,203 
 | AdaBoost | 0.6425 | 0.6388 | 0.2876 | 0.6688 | 0.8804 |
 | Naive Bayes | 0.1121 | 0.1127 | 0.1441 | 0.1222 | 0.8112 |
 
-<img src="figures/model_comparison.png" width="725" alt="Model comparison: weighted F1 vs macro F1">
+<img src="figures/model_comparison.png" width="820" alt="Model comparison: weighted F1 vs macro F1">
 
 ### 7.1 Reading the Results by Family
 
@@ -310,8 +310,8 @@ The ordering also depends on which aggregate is read. Random Forest has the high
 
 The two heatmaps below report recall and precision per class for all 16 models, with the rows in leaderboard order.
 
-<img src="figures/per_class_recall_heatmap.png" width="354" alt="Per-class recall on the test set, all models">
-<img src="figures/per_class_precision_heatmap.png" width="355" alt="Per-class precision on the test set, all models">
+<img src="figures/per_class_recall_heatmap.png" width="403" alt="Per-class recall on the test set, all models">
+<img src="figures/per_class_precision_heatmap.png" width="404" alt="Per-class precision on the test set, all models">
 
 Three patterns stand out:
 - AdaBoost achieves an accuracy of 0.6688 and a macro-AUC of 0.8804. While these metrics appear reasonable in isolation, its recall on classes 4, 5, 6, and 7 is exactly 0.00, meaning the model exclusively predicts the three most frequent classes.
@@ -372,132 +372,132 @@ Given this severe class imbalance, the ROC curve is an overly optimistic metric.
 ### 1 — Bagging Classifier
 *F1 CV = 0.919 | F1 Test = 0.969 | F1 Macro = 0.945 | Accuracy = 0.969 | AUC-macro = 0.999*
 
-<img src="figures/cm_Bagging_Classifier.png" width="231" alt="Confusion matrix — Bagging Classifier">
-<img src="figures/curves/roc_Bagging_Classifier.png" width="231" alt="One-vs-Rest ROC curve — Bagging Classifier">
-<img src="figures/curves/pr_Bagging_Classifier.png" width="231" alt="Precision-Recall curves — Bagging Classifier">
+<img src="figures/cm_Bagging_Classifier.png" width="265" alt="Confusion matrix — Bagging Classifier">
+<img src="figures/curves/roc_Bagging_Classifier.png" width="265" alt="One-vs-Rest ROC curve — Bagging Classifier">
+<img src="figures/curves/pr_Bagging_Classifier.png" width="265" alt="Precision-Recall curves — Bagging Classifier">
 
 The matrix is almost diagonal, with errors concentrated almost entirely on the boundary between classes 1 and 2. The minority classes 4 and 5 have very high recall, and all 7 ROC curves coincide with AUC near 1.00. Unlike the Random Forest, Bagging does not introduce random feature selection, letting each tree use all 15 features; the individual trees are therefore stronger and more correlated with each other, but different enough thanks to the bootstrap sampling.
 
 ### 2 — Random Forest
 *F1 CV = 0.903 | F1 Test = 0.965 | F1 Macro = 0.939 | Accuracy = 0.966 | AUC-macro = 0.999*
 
-<img src="figures/cm_RandomForest.png" width="231" alt="Confusion matrix — Random Forest">
-<img src="figures/curves/roc_RandomForest.png" width="231" alt="One-vs-Rest ROC curve — Random Forest">
-<img src="figures/curves/pr_RandomForest.png" width="231" alt="Precision-Recall curves — Random Forest">
+<img src="figures/cm_RandomForest.png" width="265" alt="Confusion matrix — Random Forest">
+<img src="figures/curves/roc_RandomForest.png" width="265" alt="One-vs-Rest ROC curve — Random Forest">
+<img src="figures/curves/pr_RandomForest.png" width="265" alt="Precision-Recall curves — Random Forest">
 
 A pattern almost identical to Bagging, with a strong diagonal and few confusions. Classes 4 and 5 have slightly lower recall than Bagging, probably due to the random feature selection. AUC-macro = 0.999 as in Bagging.
 
 ### 3 — KNN
 *F1 CV = 0.891 | F1 Test = 0.941 | F1 Macro = 0.903 | Accuracy = 0.941 | AUC-macro = 0.944*
 
-<img src="figures/cm_KNN.png" width="231" alt="Confusion matrix — KNN">
-<img src="figures/curves/roc_KNN.png" width="231" alt="One-vs-Rest ROC curve — KNN">
-<img src="figures/curves/pr_KNN.png" width="231" alt="Precision-Recall curves — KNN">
+<img src="figures/cm_KNN.png" width="265" alt="Confusion matrix — KNN">
+<img src="figures/curves/roc_KNN.png" width="265" alt="One-vs-Rest ROC curve — KNN">
+<img src="figures/curves/pr_KNN.png" width="265" alt="Precision-Recall curves — KNN">
 
 KNN with K=1 reaches F1 = 0.941 on the full dataset, because forest cover contains continuous geographic variables, so every point in the test set probably has a neighbour in the training set of the same class. The main confusions are between 1 and 2, with classes 5 and 6 remaining the hardest to classify. AUC-macro = 0.944, the lowest among the top 5 models, with stepped curves.
 
 ### 4 — Gradient Boosting
 *F1 CV = 0.886 | F1 Test = 0.919 | F1 Macro = 0.904 | Accuracy = 0.919 | AUC-macro = 0.991*
 
-<img src="figures/cm_GradientBoosting.png" width="231" alt="Confusion matrix — Gradient Boosting">
-<img src="figures/curves/roc_GradientBoosting.png" width="231" alt="One-vs-Rest ROC curve — Gradient Boosting">
-<img src="figures/curves/pr_GradientBoosting.png" width="231" alt="Precision-Recall curves — Gradient Boosting">
+<img src="figures/cm_GradientBoosting.png" width="265" alt="Confusion matrix — Gradient Boosting">
+<img src="figures/curves/roc_GradientBoosting.png" width="265" alt="One-vs-Rest ROC curve — Gradient Boosting">
+<img src="figures/curves/pr_GradientBoosting.png" width="265" alt="Precision-Recall curves — Gradient Boosting">
 
 The model's misclassifications are concentrated in classes 1 and 2. The minority classes 4 and 5 are the hardest here too, but compared with the single pruned tree, boosting reduces the errors on the minority classes. AUC-macro = 0.991 is very high, and the curves for classes 1 and 2 show a slight dip indicating the difficulty of separating the two majority classes. Classes 4–7 instead reach AUC ≈ 1.00.
 
 ### 5 — Decision Tree Pruned
 *F1 CV = 0.855 | F1 Test = 0.908 | F1 Macro = 0.862 | Accuracy = 0.909 | AUC-macro = 0.958*
 
-<img src="figures/cm_DecisionTree_Pruned.png" width="231" alt="Confusion matrix — Decision Tree Pruned">
-<img src="figures/curves/roc_DecisionTree_Pruned.png" width="231" alt="One-vs-Rest ROC curve — Decision Tree Pruned">
+<img src="figures/cm_DecisionTree_Pruned.png" width="313" alt="Confusion matrix — Decision Tree Pruned">
+<img src="figures/curves/roc_DecisionTree_Pruned.png" width="313" alt="One-vs-Rest ROC curve — Decision Tree Pruned">
 
 The single tree reaches F1 = 0.908 despite being a simple model. The search for the optimal depth and `ccp_alpha` for the cost-complexity pruning avoided overfitting. With many training samples, each leaf can hold enough observations to form precise conditions. The confusions on classes 1 and 2 are more frequent than in the ensembles. Class 5 with recall 0.58 is the most penalised. AUC-macro = 0.958 and the curves have a more jagged shape than the ensembles.
 
 ### 6 — LightGBM
 *F1 CV = 0.870 | F1 Test = 0.877 | F1 Macro = 0.855 | Accuracy = 0.875 | AUC-macro = 0.989*
 
-<img src="figures/cm_LightGBM.png" width="231" alt="Confusion matrix — LightGBM">
-<img src="figures/curves/roc_LightGBM.png" width="231" alt="One-vs-Rest ROC curve — LightGBM">
-<img src="figures/curves/pr_LightGBM.png" width="231" alt="Precision-Recall curves — LightGBM">
+<img src="figures/cm_LightGBM.png" width="265" alt="Confusion matrix — LightGBM">
+<img src="figures/curves/roc_LightGBM.png" width="265" alt="One-vs-Rest ROC curve — LightGBM">
+<img src="figures/curves/pr_LightGBM.png" width="265" alt="Precision-Recall curves — LightGBM">
 
 LightGBM yields lower-than-expected performance. The confusion matrix reveals a significant overprediction of class 5. Despite a high recall (0.97), precision is merely ~50% with false positives predominantly drawn from class 2. This behaviour is a deliberate trade-off. Hyperparameter tuning optimised class weights to boost minority recall at the expense of majority-class false positives. Consequently, the weighted F1-score decreases (0.8766), aligning more closely with the macro F1-score (0.8548). Ranking fourth with a macro-AUC of 0.989, the model's curves highlight its specific struggle in predicting classes 1 and 2.
 
 ### 7 — XGBoost
 *F1 CV = 0.848 | F1 Test = 0.862 | F1 Macro = 0.844 | Accuracy = 0.863 | AUC-macro = 0.985*
 
-<img src="figures/cm_XGBoost.png" width="231" alt="Confusion matrix — XGBoost">
-<img src="figures/curves/roc_XGBoost.png" width="231" alt="One-vs-Rest ROC curve — XGBoost">
+<img src="figures/cm_XGBoost.png" width="313" alt="Confusion matrix — XGBoost">
+<img src="figures/curves/roc_XGBoost.png" width="313" alt="One-vs-Rest ROC curve — XGBoost">
 
 XGBoost shows the classic difficulty on classes 1 and 2. Class 5 is the most penalised, consistent with the maximum depth explored by the grid (max_depth ≤ 7). AUC-macro = 0.985 with curves very similar to LightGBM's and classes 1 and 2 hard to separate.
 
 ### 8 — MLP NeuralNet
 *F1 CV = 0.821 | F1 Test = 0.861 | F1 Macro = 0.832 | Accuracy = 0.859 | AUC-macro = 0.985*
 
-<img src="figures/cm_MLP_NeuralNet.png" width="231" alt="Confusion matrix — MLP NeuralNet">
-<img src="figures/curves/roc_MLP_NeuralNet.png" width="231" alt="One-vs-Rest ROC curve — MLP NeuralNet">
+<img src="figures/cm_MLP_NeuralNet.png" width="313" alt="Confusion matrix — MLP NeuralNet">
+<img src="figures/curves/roc_MLP_NeuralNet.png" width="313" alt="One-vs-Rest ROC curve — MLP NeuralNet">
 
 The MLP does well on the minority classes (4 recall 0.95, 5 recall 0.96) but suffers more on the majority classes. The neural network learned non-linear boundaries for the minority classes better than the ensemble methods, but at the cost of overall precision. AUC-macro = 0.985 and the ROC curves are almost identical to XGBoost's.
 
 ### 9 — SVM RBF
 *F1 CV = 0.833 | F1 Test = 0.838 | F1 Macro = 0.774 | Accuracy = 0.841 | AUC-macro: N/A*
 
-<img src="figures/cm_SVM_RBF.png" width="231" alt="Confusion matrix — SVM RBF">
+<img src="figures/cm_SVM_RBF.png" width="313" alt="Confusion matrix — SVM RBF">
 
 The SVM was trained on a subset of 100,000 samples because of the algorithm's O(n²) complexity, yet it generalises well to the 116,203 test instances. The RBF kernel maps the non-linear boundaries clearly better than the linear models. Class 5 is the most penalised (recall 0.36), since the SVM saw few examples with the subset. Class 7 shows many false positives towards class 1.
 
 ### 10 — Logistic Splines
 *F1 CV = 0.738 | F1 Test = 0.736 | F1 Macro = 0.628 | Accuracy = 0.742 | AUC-macro = 0.948*
 
-<img src="figures/cm_Logistic_Splines.png" width="231" alt="Confusion matrix — Logistic Splines">
-<img src="figures/curves/roc_Logistic_Splines.png" width="231" alt="One-vs-Rest ROC curve — Logistic Splines">
+<img src="figures/cm_Logistic_Splines.png" width="313" alt="Confusion matrix — Logistic Splines">
+<img src="figures/curves/roc_Logistic_Splines.png" width="313" alt="One-vs-Rest ROC curve — Logistic Splines">
 
 Among the logistic regressions, the use of cubic splines made it possible to capture non-linear relationships. The errors between classes 1 and 2 remain high, and class 5 (recall 0.14) is almost entirely misclassified. AUC-macro = 0.948 is very high, and the gap between AUC = 0.948 and F1 = 0.736 shows good discrimination but imprecise classification thresholds.
 
 ### 11 — Logistic Reg
 *F1 CV = 0.718 | F1 Test = 0.714 | F1 Macro = 0.533 | Accuracy = 0.724 | AUC-macro = 0.936*
 
-<img src="figures/cm_Logistic_Reg.png" width="231" alt="Confusion matrix — Logistic Reg">
-<img src="figures/curves/roc_Logistic_Reg.png" width="231" alt="One-vs-Rest ROC curve — Logistic Reg">
+<img src="figures/cm_Logistic_Reg.png" width="313" alt="Confusion matrix — Logistic Reg">
+<img src="figures/curves/roc_Logistic_Reg.png" width="313" alt="One-vs-Rest ROC curve — Logistic Reg">
 
 Logistic regression with L1 regularisation reaches F1 = 0.714. Class 5 (recall 0.01) is practically ignored, and the model predicts almost everything as class 1 or 2. Class 7 is often confused with class 1. AUC-macro = 0.936 with the C1 and C2 curves far from the diagonal.
 
 ### 12 — LR + PCA
 *F1 CV = 0.697 | F1 Test = 0.694 | F1 Macro = 0.462 | Accuracy = 0.706 | AUC-macro = 0.924*
 
-<img src="figures/cm_LR_PCA.png" width="231" alt="Confusion matrix — LR + PCA">
-<img src="figures/curves/roc_LR_PCA.png" width="231" alt="One-vs-Rest ROC curve — LR + PCA">
+<img src="figures/cm_LR_PCA.png" width="313" alt="Confusion matrix — LR + PCA">
+<img src="figures/curves/roc_LR_PCA.png" width="313" alt="One-vs-Rest ROC curve — LR + PCA">
 
 The PCA variant reaches F1 = 0.694, so the PCA preprocessing causes an information loss. The reduction to 12 components (95.3% of variance) removes the information that distinguishes the minority classes. AUC-macro = 0.924 is the worst among the linear regressions. Class 4 reaches AUC ≈ 1.00 despite its low recall.
 
 ### 13 — QDA
 *F1 CV = 0.687 | F1 Test = 0.688 | F1 Macro = 0.532 | Accuracy = 0.691 | AUC-macro = 0.924*
 
-<img src="figures/cm_QDA.png" width="231" alt="Confusion matrix — QDA">
-<img src="figures/curves/roc_QDA.png" width="231" alt="One-vs-Rest ROC curve — QDA">
+<img src="figures/cm_QDA.png" width="313" alt="Confusion matrix — QDA">
+<img src="figures/curves/roc_QDA.png" width="313" alt="One-vs-Rest ROC curve — QDA">
 
 QDA shows boundaries that improve slightly over LDA. Class 4 (recall 0.61) benefits from the curved boundaries. Classes 5 (recall 0.21) and 6 (recall 0.35) remain problematic. AUC-macro = 0.924, and the C1 and C2 curves show the model's difficulty in separating the two majority classes with parametric methods, while C4 (0.99) has a very high AUC.
 
 ### 14 — LDA
 *F1 CV = 0.684 | F1 Test = 0.683 | F1 Macro = 0.510 | Accuracy = 0.680 | AUC-macro = 0.902*
 
-<img src="figures/cm_LDA.png" width="231" alt="Confusion matrix — LDA">
-<img src="figures/curves/roc_LDA.png" width="231" alt="One-vs-Rest ROC curve — LDA">
+<img src="figures/cm_LDA.png" width="313" alt="Confusion matrix — LDA">
+<img src="figures/curves/roc_LDA.png" width="313" alt="One-vs-Rest ROC curve — LDA">
 
 The LDA matrix shows many false positives from class 1 towards class 7. LDA tends to confuse the classes at the extremes of elevation, a behaviour typical of linear separation on multimodal distributions. AUC-macro = 0.902, the worst among the parametric models, with very low C1 and C2 curves.
 
 ### 15 — AdaBoost
 *F1 CV = 0.643 | F1 Test = 0.639 | F1 Macro = 0.288 | Accuracy = 0.669 | AUC-macro = 0.880*
 
-<img src="figures/cm_AdaBoost.png" width="231" alt="Confusion matrix — AdaBoost">
-<img src="figures/curves/roc_AdaBoost.png" width="231" alt="One-vs-Rest ROC curve — AdaBoost">
+<img src="figures/cm_AdaBoost.png" width="313" alt="Confusion matrix — AdaBoost">
+<img src="figures/curves/roc_AdaBoost.png" width="313" alt="One-vs-Rest ROC curve — AdaBoost">
 
 AdaBoost focuses on the misclassified examples and suffers greatly in the presence of noise at the class boundaries, so the ambiguous samples between classes 1 and 2 are constantly revisited and reweighted, ruining performance. The confusion matrix shows that columns 4, 5, 6, 7 are zeroed out (recall = 0.00). The model predicts exclusively classes 1, 2 and 3. AUC-macro = 0.880 with very low curves.
 
 ### 16 — Naive Bayes
 *F1 CV = 0.112 | F1 Test = 0.113 | F1 Macro = 0.144 | Accuracy = 0.122 | AUC-macro = 0.811*
 
-<img src="figures/cm_NaiveBayes.png" width="231" alt="Confusion matrix — Naive Bayes">
-<img src="figures/curves/roc_NaiveBayes.png" width="231" alt="One-vs-Rest ROC curve — Naive Bayes">
+<img src="figures/cm_NaiveBayes.png" width="313" alt="Confusion matrix — Naive Bayes">
+<img src="figures/curves/roc_NaiveBayes.png" width="313" alt="One-vs-Rest ROC curve — Naive Bayes">
 
 Naive Bayes is the least suited model to the problem with F1 = 0.113. The independence assumption between features does not hold in a geographic dataset where elevation, slope and hydrology distances are highly correlated. The matrix shows a great many false positives on class 5, and class 4 reaches recall = 1.00 but precision = 0.07. AUC-macro = 0.811 is the worst of all models, and the ROC curves are very unstable.
 
